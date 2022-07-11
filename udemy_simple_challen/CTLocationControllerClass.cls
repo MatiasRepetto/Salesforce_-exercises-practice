@@ -24,4 +24,12 @@ public with sharing class CTLocationControllerClass {
         }
         return null;
     }
+
+    public static Map<String, Integer> getStatusCount(){
+        Map<String, Integer> auxMap = new Map<String, Integer>();
+        for(AggregateResult rec : [SELECT Status__c, COUNT(Id) FROM Location__c GROUP BY Status__c]){
+            auxMap.put(String.valueOf(rec.get('Status__c')), Integer.valueOf(rec.get('expr0')));
+        }
+        return auxMap;
+    }
 }
