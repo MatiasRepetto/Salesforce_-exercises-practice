@@ -1,0 +1,28 @@
+
+----Group By----
+
+por ejemplo si tenemos 
+
+----> SELECT StageName, SUM(Amount) FROM Opportunity GROUP BY StageName;
+
+entonces si nosotros agregamos por ejemplo LeadSource a nuestro select
+este dara un error ya que no forma parte del group by 
+
+Lo correcto es que siempre que agregemos un campo que no es aggregate function en un
+Group by este mismo forme parte del group by 
+
+----> SELECT  StageName, LeadSource, SUM(Amount) FROM Opportunity GROUP BY StageName, LeadSource;
+
+----Having----
+
+Having afectara el filtro solo a los agreggate functions si nosotros 
+tenemos por ejemplo 
+
+SELECT  StageName, LeadSource, SUM(Amount) FROM Opportunity WHERE Amount > 30000;
+
+esto devuelve las oportunidades que tienen Amount > 30000 pero no las que tienen SUM(Amount) > 30000
+para esto debemos hacer 
+
+SELECT  StageName, LeadSource, SUM(Amount) FROM Opportunity HAVING SUM(Amount) > 30000;
+
+
