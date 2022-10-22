@@ -1,0 +1,14 @@
+
+// Creamos lista de mapa para la consulta avanzada
+----> AggregateResult[] grupedResults = [SELECT AVG(Amount), MAX(Amount) FROM Opportunity];
+
+// Aqui un ejemplo de como obtener los datos de dicho mapa 
+----> Double avgAmount = Double.valueOf(grupedResults[0].get('expr0'));
+----> Double maxAmount = Double.valueOf(grupedResults[0].get('expr1'));
+
+// Podemos hacer que las expresiones nombradas expr0... cambien a un nombre que nosotros quieramos 
+----> AggregateResult[] grupedResults = [SELECT AVG(Amount) avrAmount, MAX(Amount) mxAmount FROM Opportunity];
+
+// Entonces procedemos a obtener info del mapa de la siguiente manera
+----> Double avgAmount = Double.valueOf(grupedResults[0].get('avrAmount'));
+----> Double maxAmount = Double.valueOf(grupedResults[0].get('mxAmount'));

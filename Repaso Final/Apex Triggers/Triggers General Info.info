@@ -1,0 +1,33 @@
+// Database Trigger
+
+Un database trigger es un conjunto especial de operaciones que 
+corre cuando una accion especifica ocurre en una base de datos.
+
+Los triggers estan definidos para trabajar cuando los cambios a una tabla de 
+la database son creados.
+
+// APEX Trigger
+
+Un trigger APEX es una porcion de codigo apex que corre cuando acciones 
+especificas ocurren en un objeto de salesforce
+
+Los APEX triggers estan definidos para correr cuando los cambios 
+son hechos en los campos de los objetos.
+
+un punto a fabor de los triggers sobre flows y process builder es que 
+los triggers son mucho mas rapidos y dan una capacidad de logica infinita 
+para ejecutar automatizaciones
+
+// Apex triggers supports before and after of the next opperations:
+
+----> Insert
+----> Update
+----> Delete
+----> Merge
+----> Upsert
+----> Undelete
+
+// Errores personalizados con Apex triggers
+
+Podemos utilizar triggers para prevenir que ocurran operaciones DML llamando a
+el metodo addError() en un registro de un campo

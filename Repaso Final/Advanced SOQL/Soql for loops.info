@@ -1,0 +1,8 @@
+// Usar una consulta dentro de condicion de iteracion de un for es buena paractica 
+// si esta consulta esta destinada a solo aportar informacion durante la ejecucion de ese for 
+// ya que fuera del mismo no estara almacenado el resultado de la consulta
+// esto sirve ya que reduce el HEAP SIZE en uso de nuestro porgrama y evitara el HEAP SIZE OVERFLOW
+
+// Ej:
+
+----> for(Opportunity o : [SELECT Amount, LeadSource FROM Opportunity]){ BODY }
